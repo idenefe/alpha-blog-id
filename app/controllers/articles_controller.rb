@@ -6,12 +6,15 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
   def create
-    render plain: params[:article].inspect #this will display a hash representation of the passed data
+    #render plain: params[:article].inspect #this will display a hash representation of the passed data
     #must whitelist incoming data 
-    #@article = Article.new(article_params) # calls the private article_params white-listing function
+    @article = Article.new(article_params) # calls the private article_params white-listing function
+    @article.save
+    #will cause error without redirect
+    redirect_to articles_show(@article)
   end
   private
     def article_params
-      params.require(:article).permit(:title,:description)
+      params.require(:article).permit(:title,:description) 
     end
 end
