@@ -8,11 +8,7 @@
 </head>
 <body>
 <!--This will display the flash array for messages etc.-->
-<% flash.each do |name,msg| %>
-  <ul>
-    <li><%=msg%></li>
-  </ul>
-<%end%>
+<%= render 'partials/msg'%>
 
 <%=yield%> 
 </body>
