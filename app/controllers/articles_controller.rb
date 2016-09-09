@@ -1,7 +1,13 @@
 class ArticlesController < ApplicationController
+  
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   #protect_from_forgery with: :exception
+  
+  before_action :set_article, only: [:edit,:update,:show,:destroy] 
+  # will call set article function before executing other actions(do not specify only if execute before all actions)
+  
+  
   def index
     @arts = Article.all
   end
@@ -20,12 +26,11 @@ class ArticlesController < ApplicationController
       render 'new'
     end
   end
+  
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-     @article = Article.find(params[:id])
     if @article.update(article_params)
       flash[:notice] ="Article was updated"
       render 'edit'
@@ -34,15 +39,18 @@ class ArticlesController < ApplicationController
     end
   end
   def show
-    @article = Article.find(params[:id])
+    set_article
   end
   def destroy
-    @article = Article.find(params[:id])
+    @article.destroy
     flash[:notice] ="Article titled \"#{@article.title}\" went bye-bye"
     redirect_to articles_path
   end
   private
     def article_params
       params.require(:article).permit(:title,:description) 
+    end
+    def set_article
+      @article = Article.find(params[:id])
     end
 end
