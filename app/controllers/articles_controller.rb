@@ -9,9 +9,16 @@ class ArticlesController < ApplicationController
     #render plain: params[:article].inspect #this will display a hash representation of the passed data
     #must whitelist incoming data 
     @article = Article.new(article_params) # calls the private article_params white-listing function
-    @article.save
-    #will cause error without redirect
-    redirect_to articles_show(@article)
+    
+    if @article.save #will cause error without redirect
+      flash[:notice] ="Article was successfully created"
+      redirect_to article_path(@article)
+    else
+      render 'new'
+    end
+  end
+  def show
+    @article = Article.find(params[:id])
   end
   private
     def article_params
