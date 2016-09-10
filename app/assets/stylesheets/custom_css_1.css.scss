@@ -17,3 +17,12 @@ $navbar-default-bg: #08088A;
   .center{
     text-align:center;
   }
+  .image-bg{
+    background-image: asset-url('unsplashimage.jpg');
+    background-size:cover;
+  }
+  .jumbotron > h1{
+    background: rgba(232,232,232,.5);
+    display:inline-block;
+    border-radius:10%;
+  }
