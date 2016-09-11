@@ -27,7 +27,16 @@ $navbar-default-bg: #08088A;
     border-radius:10px;
     padding:10px;
   }
-
+  .article-actions{
+    border-top:1px solid #eaeaea;
+    padding-top:5px;
+    
+  }
+  .well{
+    h4{
+      margin-top:0;
+    }
+  }
   footer {
     margin-top:45px;
     padding-top:5px;
