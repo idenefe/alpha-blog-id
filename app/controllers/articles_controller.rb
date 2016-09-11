@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params) # calls the private article_params white-listing function
     
     if @article.save #will cause error without redirect
-      flash[:notice] ="Article was successfully created"
+      flash[:success] ="Article was successfully created"
       redirect_to article_path(@article)
     else
       render 'new'
@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      flash[:notice] ="Article was updated"
+      flash[:success] ="Article was updated"
       render 'edit'
     else
       render 'edit'
@@ -43,7 +43,7 @@ class ArticlesController < ApplicationController
   end
   def destroy
     @article.destroy
-    flash[:notice] ="Article titled \"#{@article.title}\" went bye-bye"
+    flash[:danger] ="Article titled \"#{@article.title}\" went bye-bye"
     redirect_to articles_path
   end
   private

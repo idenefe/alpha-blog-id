@@ -1,11 +1,4 @@
-<%if @article.errors.any?%>
-  <h2>Please address following issues &amp; resubmit</h2>
-  <ul>
-  <%@article.errors.full_messages.each do |msg|%>
-      <li><%=msg%></li>
-  <%end%>
-  </ul>
-<%end%>
+<%=render 'partials/errors', obj: @article%>
 <div class="row"><!--form wrapper-->
   <div class="col-xs-12"><!--form row-->
   
