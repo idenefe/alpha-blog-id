@@ -17,8 +17,9 @@ class ArticlesController < ApplicationController
   def create
     #render plain: params[:article].inspect #this will display a hash representation of the passed data
     #must whitelist incoming data 
+    #debugger # will add breakpoint for byebug debugger
     @article = Article.new(article_params) # calls the private article_params white-listing function
-    
+    @article.user = User.first
     if @article.save #will cause error without redirect
       flash[:success] ="Article was successfully created"
       redirect_to article_path(@article)
