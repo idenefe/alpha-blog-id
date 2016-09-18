@@ -8,6 +8,4 @@ class PagesController < ApplicationController
   end
   def about
   end
-  def signup
-  end
 end
