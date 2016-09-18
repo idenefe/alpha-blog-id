@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   
   #two ways of handling new user post (on submmit click in form)
     #either
-    #resources :users, except[:new] # creates all post statments (except new which we defined already)
+    resources :users, except: [:new] # creates all post statments (except new which we defined already)
     #or
-    post 'users', to:'users#create' # creates post statement for user calling create action
+    #post 'users', to:'users#create' # creates post statement for user calling create action
     
   
   
