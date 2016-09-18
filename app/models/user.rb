@@ -14,5 +14,5 @@ class User < ActiveRecord::Base
     #uniqueness:{case_sensitive: false},
     uniqueness: true, #case sensitive not needed because of downcase in befor_save
     format: {with: VALID_EMAIL_REGEX}
-    
+  has_secure_password
 end
