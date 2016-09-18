@@ -2,6 +2,9 @@ $navbar-default-bg: #08088A;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+  .right-float{
+    float:right;
+  }
   #my-logo{
     float: left;
     font-size: 1.7em;
