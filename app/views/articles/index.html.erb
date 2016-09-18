@@ -1,4 +1,10 @@
 <h1 align="center">List of all Articles</h1>
 <%=link_to '+', new_article_path,class:"btn btn-primary btn-lg right-float"%>
 <br><br><br>
-<%=render 'partials/list_articles', obj: @arts%>
+<div align="center">
+  <%= will_paginate %>
+</div>
+<%=render 'partials/list_articles', obj: @articles%>
+<div align="center">
+  <%= will_paginate %>
+</div>

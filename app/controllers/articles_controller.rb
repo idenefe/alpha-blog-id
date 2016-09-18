@@ -9,7 +9,9 @@ class ArticlesController < ApplicationController
   
   
   def index
-    @arts = Article.all
+    #@arts = Article.all# will grab all articles to display
+    @articles = Article.paginate(page: params[:page], per_page:5) # will display five articles per page
+    
   end
   def new
     @article = Article.new
